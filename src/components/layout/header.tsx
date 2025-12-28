@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { APP_CONTENT } from '@/data-text/app.content';
+import { APP_CONTENT } from '@/data-text/app-content';
 
 const Header = () => {
     const { logo, navigation, buttons } = APP_CONTENT.header;

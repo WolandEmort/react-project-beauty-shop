@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/header"; // перевірте регістр, якщо змінили назву файлу
 import Footer from "@/components/layout/footer"; // <--- Імпортуємо Футер
-import { APP_CONTENT } from "@/data-text/app.content";
+import { APP_CONTENT } from "@/data-text/app-content";
 
 const inter = Inter({ subsets: ["latin"] });
 

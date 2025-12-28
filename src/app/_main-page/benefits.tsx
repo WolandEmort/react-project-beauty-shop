@@ -1,5 +1,5 @@
 import React from 'react';
-import { APP_CONTENT } from '@/data-text/app.content';
+import { APP_CONTENT } from '@/data-text/app-content';
 
 const Benefits = () => {
     const items = APP_CONTENT.benefits;

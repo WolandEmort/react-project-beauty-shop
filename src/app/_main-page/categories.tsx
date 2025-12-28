@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { APP_CONTENT } from '@/data-text/app.content';
+import { APP_CONTENT } from '@/data-text/app-content';
 
 const Categories = () => {
     const { categories } = APP_CONTENT;
