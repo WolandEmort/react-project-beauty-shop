@@ -55,5 +55,64 @@ export const APP_CONTENT = {
     metadata: {
         title: "MyShop — Найкращий магазин електроніки",
         description: "Купуйте найкращі товари за доступними цінами."
-    }
+    },
+
+    // --- ГОЛОВНИЙ БАНЕР (HERO) ---
+    hero: {
+        title: "Розкрий свою природну красу",
+        subtitle: "Найкращі бренди доглядової та декоративної косметики. Сяй яскравіше кожного дня.",
+        buttonText: "Дивитись новинки"
+    },
+
+    // --- КАТЕГОРІЇ (Для головної сторінки) ---
+    categories: [
+        {
+            id: 'face',
+            title: 'Догляд за обличчям',
+            description: 'Креми, сироватки, маски',
+            href: '/products/face',
+            // Ніжні пастельні кольори для карток
+            color: 'bg-pink-50 text-pink-600'
+        },
+        {
+            id: 'makeup',
+            title: 'Макіяж',
+            description: 'Тональні, туші, помади',
+            href: '/products/makeup',
+            color: 'bg-rose-50 text-rose-600'
+        },
+        {
+            id: 'hair',
+            title: 'Волосся',
+            description: 'Шампуні та стайлінг',
+            href: '/products/hair',
+            color: 'bg-purple-50 text-purple-600'
+        },
+        {
+            id: 'body',
+            title: 'Тіло та ванна',
+            description: 'Скраби, олії, лосьйони',
+            href: '/products/body',
+            color: 'bg-orange-50 text-orange-600'
+        }
+    ],
+
+    // --- ПЕРЕВАГИ (BENEFITS) ---
+    benefits: [
+        {
+            title: "100% Оригінал",
+            description: "Ми працюємо лише з офіційними постачальниками.",
+            icon: "star" // Іконка зірочки
+        },
+        {
+            title: "Еко-інгредієнти",
+            description: "Великий вибір натуральної та cruelty-free косметики.",
+            icon: "leaf" // Іконка листочка
+        },
+        {
+            title: "Консультація",
+            description: "Допоможемо підібрати догляд саме для твого типу шкіри.",
+            icon: "chat" // Іконка чату
+        }
+    ],
 };
