@@ -16,10 +16,15 @@ export const APP_CONTENT = {
         }
     },
 
+    catalogPage: {
+        title: "Каталог косметики",
+        description: "Оберіть категорію, щоб побачити товари"
+    },
+
     // Footer
     footer: {
         brand: {
-            description: "Ваш надійний партнер у світі електроніки. Швидка доставка та офіційна гарантія."
+            description: "Ваш надійний партнер у світі краси."
         },
         sections: {
             catalog: {
@@ -54,7 +59,8 @@ export const APP_CONTENT = {
     // Загальні мета-дані сайту (для SEO)
     metadata: {
         title: "MyShop — Найкращий магазин електроніки",
-        description: "Купуйте найкращі товари за доступними цінами."
+        description: "Купуйте найкращі товари за доступними цінами.",
+        banner_categories : "Обери свій догляд"
     },
 
     // --- ГОЛОВНИЙ БАНЕР (HERO) ---
@@ -64,7 +70,7 @@ export const APP_CONTENT = {
         buttonText: "Дивитись новинки"
     },
 
-    // --- КАТЕГОРІЇ (Для головної сторінки) ---
+    // --- КАТЕГОРІЇ  ---
     categories: [
         {
             id: 'face',

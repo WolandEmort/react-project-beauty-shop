@@ -10,7 +10,8 @@ const Benefits = () => {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 border-t border-gray-100 pt-16">
                     {items.map((item, index) => (
                         <div key={index} className="flex flex-col items-center text-center px-4">
-                            <div className="w-16 h-16 bg-rose-50 text-rose-500 rounded-full flex items-center justify-center mb-4 text-3xl">
+                            <div className="w-16 h-16 bg-rose-50 text-rose-500 rounded-full flex
+                            items-center justify-center mb-4 text-3xl">
                                 {item.icon === 'star' && '✨'}
                                 {item.icon === 'leaf' && '🌿'}
                                 {item.icon === 'chat' && '💌'}

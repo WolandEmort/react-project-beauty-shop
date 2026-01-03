@@ -1,16 +1,19 @@
 import React from 'react';
-import Categories from "@/app/_main-page/categories";
+import Hero from "@/app/_main-page/hero";
+import Benefits from "@/app/_main-page/benefits";
+import AboutProject from "@/app/_main-page/about-project"; // Імпортуємо новий блок
 
-export default function CatalogIndexPage() {
+export default function Home() {
     return (
-        <div className="pt-10 pb-20">
-            <div className="text-center mb-10">
-                <h1 className="text-4xl font-bold text-gray-900 mb-4">Каталог косметики</h1>
-                <p className="text-gray-600">Оберіть категорію, щоб побачити товари</p>
-            </div>
+        <div className="flex flex-col w-full min-h-screen">
+            {/* 1. Красива заставка (залишаємо для вау-ефекту) */}
+            <AboutProject />
 
-            {/* Просто перевикористовуємо наш гарний блок категорій */}
-            <Categories />
+            {/* 2. Інформація про проект (для рекрутерів/гостей) */}
+            <Hero />
+
+            {/* 3. Переваги (можна залишити як приклад UI-блоку) */}
+            <Benefits />
         </div>
     );
 }

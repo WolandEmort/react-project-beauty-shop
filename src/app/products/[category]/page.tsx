@@ -1,5 +1,5 @@
 import React from 'react';
-import ProductCard from '../../products/product-card';
+import ProductCard from '../product-card';
 import { PRODUCTS_MOCK } from '@/data-text/products-mock';
 import { APP_CONTENT } from '@/data-text/app-content';
 import { notFound } from 'next/navigation';
