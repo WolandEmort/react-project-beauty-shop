@@ -2,6 +2,8 @@ import React from 'react';
 import Categories from "@/app/_main-page/categories";
 import { APP_CONTENT } from '@/data-text/app-content';
 
+export const dynamic = 'force-dynamic';
+
 export default function CatalogIndexPage() {
     // Деструктуризуємо дані для чистоти коду
     const { title, description } = APP_CONTENT.catalogPage;

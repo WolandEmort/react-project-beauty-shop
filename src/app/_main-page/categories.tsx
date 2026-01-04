@@ -16,10 +16,9 @@ const Categories = async () => {
                 </h2>
 
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                    {/* 2. Проходимось по реальних даних з БД */}
                     {categories.map((cat) => (
                         <Link
-                            href={`/products?category=${cat.id}`}
+                            href={`/products/${cat.id}`}
                             key={cat.id}
                             className="group block"
                         >

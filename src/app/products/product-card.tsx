@@ -1,55 +1,98 @@
 import React from 'react';
 import Link from 'next/link';
+import { prisma } from '@/lib/prisma'; // Наш місток до бази
+import Categories from "@/app/_main-page/categories";
+import { APP_CONTENT } from '@/data-text/app-content';
 
-// Типізація пропсів (щоб TS розумів, що ми передаємо)
-interface ProductProps {
-    id: string;
-    title: string;
-    price: number;
-    image: string;
-    isNew?: boolean;
+// 1. Типізуємо параметри URL (щоб знати, яку категорію обрав юзер)
+type Props = {
+    searchParams: Promise<{ [key: string]: string | string[] | undefined }>
 }
 
-const ProductCard = ({ id, title, price, image, isNew }: ProductProps) => {
+export default async function CatalogPage(props: Props) {
+    const searchParams = await props.searchParams;
+    // 2. Отримуємо ID категорії з URL (наприклад, ?category=face)
+    const categoryId = typeof searchParams.category === 'string' ? searchParams.category : undefined;
+
+    const { title, description } = APP_CONTENT.catalogPage;
+
+    // 3. Формуємо запит до бази
+    // Якщо є категорія -> шукаємо товари цієї категорії
+    // Якщо немає -> беремо всі товари
+    const products = await prisma.product.findMany({
+        where: categoryId ? { categoryId: categoryId } : {},
+        include: { category: true }, // Також завантажити дані про категорію
+    });
+
     return (
-        <div className="group bg-white rounded-xl border border-gray-100 hover:shadow-lg transition duration-300 flex flex-col overflow-hidden">
+        <div className="pt-10 pb-20">
 
-            {/* 1. Картинка (Верхня частина) */}
-            <Link href={`/products/${id}`} className="relative h-64 overflow-hidden bg-gray-50">
-                {/* Тимчасова імітація фото */}
-                <div className={`w-full h-full ${image} group-hover:scale-105 transition duration-500`}></div>
+            {/* Заголовок */}
+            <div className="text-center mb-10 px-4">
+                <h1 className="text-4xl font-bold text-gray-900 mb-4">{title}</h1>
+                <p className="text-gray-600">{description}</p>
+            </div>
 
-                {/* Бейдж "Новинка" */}
-                {isNew && (
-                    <span className="absolute top-3 left-3 bg-rose-500 text-white text-xs font-bold px-2 py-1 rounded-full uppercase tracking-wider">
-            New
-          </span>
+            {/* Блок категорій (залишаємо як навігацію) */}
+            <Categories />
+
+            {/* --- СЕКЦІЯ ТОВАРІВ --- */}
+            <div className="container mx-auto px-4 mt-16">
+                <h2 className="text-2xl font-bold mb-6 text-gray-800">
+                    {categoryId
+                        ? `Товари категорії: ${products[0]?.category.title || categoryId}`
+                        : "Всі товари"}
+                </h2>
+
+                {products.length === 0 ? (
+                    <p className="text-gray-500 text-center py-10">
+                        У цій категорії поки немає товарів.
+                    </p>
+                ) : (
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                        {products.map((product) => (
+                            <Link
+                                key={product.id}
+                                href={`/products/${product.categoryId}/${product.id}`}
+                                className="group block bg-white rounded-2xl border border-gray-100
+                                overflow-hidden hover:shadow-lg transition duration-300"
+                            >
+                                {/* Імітація картинки (колір) */}
+                                <div className={`h-64 w-full ${product.image} flex items-center justify-center relative`}>
+                                    {/* Бейджик "New" */}
+                                    {product.isNew && (
+                                        <span className="absolute top-4 right-4 bg-rose-500 text-white
+                                        text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
+                       New
+                     </span>
+                                    )}
+                                    <span className="text-6xl opacity-50 mix-blend-multiply">
+                     📦
+                   </span>
+                                </div>
+
+                                <div className="p-6">
+                                    <p className="text-xs text-rose-500 font-bold uppercase tracking-wider mb-2">
+                                        {product.category.title}
+                                    </p>
+                                    <h3 className="font-bold text-gray-900 text-lg mb-2 group-hover:text-rose-600 transition">
+                                        {product.title}
+                                    </h3>
+                                    <div className="flex items-center justify-between mt-4">
+                    <span className="text-xl font-bold text-gray-900">
+                      {product.price} ₴
+                    </span>
+                                        <button className="w-10 h-10 rounded-full bg-gray-100 flex
+                                        items-center justify-center text-gray-600 group-hover:bg-gray-900
+                                        group-hover:text-white transition"> +
+                                        </button>
+                                    </div>
+                                </div>
+                            </Link>
+                        ))}
+                    </div>
                 )}
-            </Link>
-
-            {/* 2. Інформація (Нижня частина) */}
-            <div className="p-4 flex flex-col flex-grow">
-                <Link href={`/products/${id}`}>
-                    <h3 className="text-gray-900 font-medium mb-1 hover:text-rose-500 transition line-clamp-2">
-                        {title}
-                    </h3>
-                </Link>
-
-                <div className="mt-auto flex items-center justify-between pt-4">
-          <span className="text-lg font-bold text-gray-900">
-            {price} ₴
-          </span>
-
-                    {/* Кнопка "Купити" (проста іконка для початку) */}
-                    <button className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-rose-500 hover:text-white transition">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007Z" />
-                        </svg>
-                    </button>
-                </div>
             </div>
         </div>
     );
-};
-
-export default ProductCard;
+}
