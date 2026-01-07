@@ -2,6 +2,7 @@ import React from 'react';
 import { prisma } from '@/lib/prisma';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import AddToCartButton from '@/components/AddToCartButton';
 
 type Props = {
     params: Promise<{ category: string; id: string }>;
@@ -57,9 +58,7 @@ export default async function ProductPage(props: Props) {
                     <p className="text-gray-600 text-lg leading-relaxed mb-10">
                         {product.description || "Опис товару..."}
                     </p>
-                    <button className="w-full md:w-auto bg-gray-900 text-white px-10 py-4 rounded-xl text-lg font-bold hover:bg-rose-600 transition duration-300 shadow-lg hover:shadow-xl">
-                        Додати в кошик
-                    </button>
+                    <AddToCartButton product={product} />
                 </div>
             </div>
         </div>
