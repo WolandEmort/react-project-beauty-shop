@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/layout/header"; // перевірте регістр, якщо змінили назву файлу
-import Footer from "@/components/layout/footer"; // <--- Імпортуємо Футер
+import Header from "@/components/layout/header";
+import Footer from "@/components/layout/footer";
 import { APP_CONTENT } from "@/data-text/app-content";
+import ToasterProvider from "@/components/ToasterProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,16 +19,18 @@ export default function RootLayout({children,}:
         <html lang="uk">
         <body className={inter.className}>
         <div className="flex flex-col min-h-screen">
-            {/* Header */}
+
+            <ToasterProvider />
+
             <Header />
 
-            {/* Main content - flex-grow змусить футер притиснутися до низу, якщо контенту мало */}
             <main className="flex-grow">
                 {children}
             </main>
 
-            {/* Footer */}
             <Footer />
+
+
         </div>
         </body>
         </html>
