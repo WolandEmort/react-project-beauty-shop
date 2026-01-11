@@ -1,0 +1,189 @@
+{
+  "Header": {
+    "logo": "MyShop",
+    "nav": {
+      "home": "Home",
+      "catalog": "Catalog",
+      "about": "About Us",
+      "contacts": "Contacts"
+    },
+    "searchPlaceholder": "Search",
+    "profile": "Profile",
+    "cart": "Cart"
+  },
+  "Hero": {
+    "title": "Reveal Your Natural Beauty",
+    "subtitle": "Best skincare and makeup brands. Shine brighter every day.",
+    "button": "View New Arrivals"
+  },
+  "Categories": {
+    "face": {
+      "title": "Face Care",
+      "desc": "Creams, serums, masks"
+    },
+    "makeup": {
+      "title": "Makeup",
+      "desc": "Foundation, mascara, lipstick"
+    },
+    "hair": {
+      "title": "Hair",
+      "desc": "Shampoos and styling"
+    },
+    "body": {
+      "title": "Body & Bath",
+      "desc": "Scrubs, oils, lotions"
+    }
+  },
+  "Benefits": {
+    "original": {
+      "title": "100% Original",
+      "desc": "We work only with official suppliers."
+    },
+    "eco": {
+      "title": "Eco Ingredients",
+      "desc": "Huge selection of natural and cruelty-free cosmetics."
+    },
+    "consult": {
+      "title": "Consultation",
+      "desc": "We will help choose care specifically for your skin type."
+    }
+  },
+
+  "Footer": {
+    "brandDesc": "Your reliable partner in the world of beauty.",
+    "titles": {
+      "catalog": "Catalog",
+      "support": "Support",
+      "contacts": "Contacts"
+    },
+    "links": {
+      "delivery": "Delivery & Payment",
+      "guarantee": "Warranty",
+      "returns": "Returns",
+      "faq": "FAQ"
+    },
+    "contactInfo": {
+      "phone": "+38 (099) 123-45-67",
+      "email": "support@myshop.com",
+      "address": "Kyiv, Khreshchatyk st., 1",
+      "workHours": "Mon-Sun: 09:00 - 21:00"
+    },
+    "copyright": "© 2025 MyShop. All rights reserved."
+  },
+
+  "AboutProject": {
+    "badge": "Pet Project 🚀",
+    "heading": {
+      "main": "Modern E-commerce",
+      "highlight": "for my portfolio"
+    },
+    "description": "This project was built to showcase skills with the modern React stack. It features a catalog with dynamic routing, semantic markup, responsive UI, and performance optimization using Next.js App Router.",
+    "buttons": {
+      "demo": "View Demo (Catalog)",
+      "github": "GitHub Code"
+    },
+    "techStack": {
+      "next": {
+        "name": "Next.js 15",
+        "desc": "App Router, Server Components"
+      },
+      "ts": {
+        "name": "TypeScript",
+        "desc": "Strict typing, Interfaces"
+      },
+      "tailwind": {
+        "name": "Tailwind CSS",
+        "desc": "Responsive UI, Styling"
+      },
+      "arch": {
+        "name": "Architecture",
+        "desc": "FSD / Modular structure"
+      }
+    }
+  },
+
+  "Cart": {
+    "title": "Cart",
+    "empty": {
+      "title": "Your cart is empty",
+      "desc": "Looks like you haven't chosen anything yet. It's time to fix that!",
+      "button": "Go to Catalog"
+    },
+    "item": {
+      "pricePerUnit": "Price per unit:",
+      "removeTooltip": "Remove",
+      "removedMessage": "removed from cart"
+    },
+    "summary": {
+      "title": "Total",
+      "subtotal": "Subtotal:",
+      "delivery": "Delivery:",
+      "free": "Free",
+      "total": "To pay:",
+      "checkout": "Checkout",
+      "agreement": "By clicking the button, you agree to the public offer terms"
+    }
+  },
+
+  "Checkout": {
+    "title": "Checkout",
+    "empty": {
+      "title": "Cart is empty",
+      "link": "Return to shopping"
+    },
+    "sections": {
+      "contacts": "Contact Details",
+      "delivery": "Delivery",
+      "payment": "Payment"
+    },
+    "form": {
+      "firstName": "First Name",
+      "firstNamePlaceholder": "John",
+      "lastName": "Last Name",
+      "lastNamePlaceholder": "Doe",
+      "phone": "Phone",
+      "phonePlaceholder": "+380 99 123 45 67",
+      "email": "Email (optional)",
+      "emailPlaceholder": "john@example.com",
+      "address": "Delivery Address / Post Office",
+      "addressPlaceholder": "Kyiv, Khreshchatyk st., 1, apt. 10"
+    },
+    "paymentMethods": {
+      "card": "Card Online",
+      "cash": "Cash on Delivery"
+    },
+    "summary": {
+      "title": "Your Order",
+      "subtotal": "Subtotal:",
+      "delivery": "Delivery:",
+      "carrierRates": "Carrier rates apply",
+      "total": "Total:",
+      "button": "Confirm Order",
+      "processing": "Processing..."
+    },
+    "toasts": {
+      "success": "Order placed successfully! A manager will contact you."
+    }
+  },
+
+  "Catalog": {
+    "title": "Cosmetics Catalog",
+    "description": "Choose a category to view products",
+    "headers": {
+      "all": "All Products",
+      "category": "Category: {category}"
+    },
+    "empty": "No products found in this category.",
+    "card": {
+      "new": "New",
+      "addToCart": "+"
+    },
+    "backLink": "← All Products"
+  },
+
+  "ProductPage": {
+    "backLink": "← Back to category '{category}'",
+    "new": "New",
+    "noDescription": "Description is not available yet."
+  }
+}

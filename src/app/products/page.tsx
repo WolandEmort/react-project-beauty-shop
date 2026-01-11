@@ -1,21 +1,20 @@
 import React from 'react';
 import Categories from "@/app/_main-page/categories";
-import { APP_CONTENT } from '@/data-text/app-content';
+import { getTranslations } from 'next-intl/server';
 
 export const dynamic = 'force-dynamic';
 
-export default function CatalogIndexPage() {
-    // Деструктуризуємо дані для чистоти коду
-    const { title, description } = APP_CONTENT.catalogPage;
+export default async function CatalogIndexPage() {
+    const t = await getTranslations('Catalog');
 
     return (
         <div className="pt-10 pb-20">
-            <div className="text-center mb-10">
+            <div className="text-center mb-10 px-4">
                 <h1 className="text-4xl font-bold text-gray-900 mb-4">
-                    {title}
+                    {t('title')}
                 </h1>
                 <p className="text-gray-600">
-                    {description}
+                    {t('description')}
                 </p>
             </div>
 

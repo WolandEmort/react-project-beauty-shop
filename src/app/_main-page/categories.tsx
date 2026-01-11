@@ -22,7 +22,8 @@ const Categories = async () => {
                             key={cat.id}
                             className="group block"
                         >
-                            <div className={`h-40 rounded-2xl flex items-center justify-center mb-4 transition transform group-hover:scale-105 ${cat.color || 'bg-gray-100'}`}>
+                            <div className={`h-40 rounded-2xl flex items-center justify-center 
+                            mb-4 transition transform group-hover:scale-105 ${cat.color || 'bg-gray-100'}`}>
                                 {/* Емодзі замість картинок для демо */}
                                 <span className="text-4xl">
                   {cat.id === 'face' && '✨'}

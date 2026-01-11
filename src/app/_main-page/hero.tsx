@@ -26,7 +26,8 @@ const Hero = () => {
                 <Link
                     href="/products"
                     className="inline-block bg-rose-500 hover:bg-rose-600
-                    text-white font-semibold py-4 px-10 rounded-full transition transform hover:scale-105 shadow-xl shadow-rose-200"
+                    text-white font-semibold py-4 px-10 rounded-full transition transform
+                    hover:scale-105 shadow-xl shadow-rose-200"
                 >
                     {buttonText}
                 </Link>
