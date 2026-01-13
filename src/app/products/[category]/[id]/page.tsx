@@ -74,7 +74,7 @@ export default async function ProductPage(props: Props) {
                     </p>
 
                     {/* Кнопка додавання (Вона клієнтська, там текст поки що може бути хардкодним, або треба правити і її) */}
-                    <AddToCartButton product={product} />
+                     <AddToCartButton product={product} />
                 </div>
             </div>
         </div>
