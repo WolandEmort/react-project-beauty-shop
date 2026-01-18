@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { prisma } from '@/lib/prisma';
-import Categories from "@/app/_main-page/categories";
+import Categories from "@/components/home/categories";
 import { getTranslations } from 'next-intl/server'; // 👇 Для серверних компонентів
 
 type Props = {

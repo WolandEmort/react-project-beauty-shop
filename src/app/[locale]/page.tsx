@@ -1,7 +1,7 @@
 import React from 'react';
-import Hero from "@/app/_main-page/hero";
-import Benefits from "@/app/_main-page/benefits";
-import AboutProject from "@/app/_main-page/about-project"; // Імпортуємо новий блок
+import Hero from "@/components/home/hero";
+import Benefits from "@/components/home/benefits";
+import AboutProject from "@/components/home/about-project"; // Імпортуємо новий блок
 
 export default function Home() {
     return (

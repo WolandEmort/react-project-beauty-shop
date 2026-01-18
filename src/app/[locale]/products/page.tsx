@@ -1,5 +1,5 @@
 import React from 'react';
-import Categories from "@/app/_main-page/categories";
+import Categories from "@/components/home/categories";
 import { getTranslations } from 'next-intl/server';
 
 export const dynamic = 'force-dynamic';
