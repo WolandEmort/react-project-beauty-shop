@@ -1,14 +1,13 @@
 import React from 'react';
-import Link from 'next/link';
+import Link from 'next/link'; // 👈 Звичайний лінк залишаємо для лого
 import CartIndicator from '@/components/CartIndicator';
 import { useTranslations } from 'next-intl';
+import LanguageSwitcher from '@/components/LanguageSwitcher'; // 👈 1. Імпорт
 
 const Header = () => {
-    // 👇 2. Підключаємось до блоку "Header" у нашому JSON
     const t = useTranslations('Header');
 
-    // 👇 3. Формуємо навігацію динамічно
-    // Ми беремо ключі, а текст дістаємо через t('nav.home')
+    // Навігація
     const navLinks = [
         { href: "/", label: t('nav.home') },
         { href: "/products", label: t('nav.catalog') },
@@ -25,7 +24,7 @@ const Header = () => {
                     {t('logo')}
                 </Link>
 
-                {/* Навігація */}
+                {/* Навігація (Desktop) */}
                 <nav className="hidden md:flex gap-6 text-gray-600 font-medium">
                     {navLinks.map((link) => (
                         <Link
@@ -41,15 +40,18 @@ const Header = () => {
                 {/* Правий блок */}
                 <div className="flex items-center gap-2 sm:gap-4">
 
+                    <div className="hidden sm:block mr-2">
+                        <LanguageSwitcher />
+                    </div>
+
                     {/* Пошук */}
                     <div className="relative group hidden sm:block">
                         <input
                             type="text"
-                            // 👇 Беремо плейсхолдер з перекладу
                             placeholder={t('searchPlaceholder')}
                             className="pl-10 pr-4 py-2 rounded-full bg-gray-50 border
                             border-gray-200 focus:outline-none focus:border-rose-300
-                            focus:ring-1 focus:ring-rose-300 w-64 transition-all text-sm"
+                            focus:ring-1 focus:ring-rose-300 w-48 lg:w-64 transition-all text-sm"
                         />
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                              strokeWidth={1.5} stroke="currentColor" className="w-5 h-5 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2">
@@ -58,7 +60,6 @@ const Header = () => {
                         </svg>
                     </div>
 
-                    {/* Іконка пошуку (мобільна) */}
                     <button className="sm:hidden p-2 hover:bg-rose-50 rounded-full text-gray-600">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                              strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -67,7 +68,6 @@ const Header = () => {
                         </svg>
                     </button>
 
-                    {/* Авторизація */}
                     <button
                         className="p-2 hover:bg-rose-50 rounded-full transition text-gray-600"
                         aria-label={t('profile')}
@@ -83,6 +83,10 @@ const Header = () => {
                     <CartIndicator />
 
                 </div>
+            </div>
+
+            <div className="sm:hidden border-t py-2 flex justify-center bg-gray-50">
+                <LanguageSwitcher />
             </div>
         </header>
     );
